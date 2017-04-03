@@ -1,0 +1,29 @@
+{
+  "name": "create-app",
+  "version": "1.0.0",
+  "description": "A react-redux fullstack generator running on Node.js with express and postgres",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "generator",
+    "react",
+    "fullstack"
+  ],
+  "author": "avarona",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^2.3.3"
+  }
+}
