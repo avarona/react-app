@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
+const models = require('../db')
 
-router.use('/politicians', require('./politicians'))
-router.use('/issues', require('./issueCategories')) 
+// routes
 
 module.exports = router;

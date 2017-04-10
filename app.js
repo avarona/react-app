@@ -1,17 +1,17 @@
 'use strict';
 
 const express = require('express');
+const app = express();
 const morgan = require('morgan');
 const { resolve } = require('path');
-const db = require('./db/models');
-
-const app = express();
+const db = require('./db');
 const server = require('./server');
 
 // logging middleware
 app.use(morgan('dev'));
 
-app.use('/api', server)
+// prepend '/api' to URIs
+app.use('/api', server);
 
 // serve static files from public
 app.use('/public', express.static('public'));
