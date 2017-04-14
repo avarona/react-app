@@ -1,5 +1,5 @@
 const db = require('./_db');
 
-const Page = require('./models/users.js');
+const Example = require('./models/examples.js');
 
 module.exports = db

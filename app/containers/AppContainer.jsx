@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Example from '../components/Example'
+import Example from '../components/Example.jsx';
 
 class AppContainer extends Component {
 	constructor(props){
 		super(props)
 	}
 
-	render(){
-		return(
+	render() {
+		return (
 			<div>
+				<h1>App Container</h1>
         <Example />
       </div>
     )
   }
+}
 
-export default connect()(AppContainer)
+/* REDUX CONTAINER */
+
+const mapStateToProps = ({ example }) => ({ example })
+
+const mapDispatchToProps = dispatch => ({
+  update: () => dispatch(exampleUpdate())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)

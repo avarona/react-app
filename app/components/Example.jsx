@@ -4,15 +4,9 @@ import { connect } from 'react-redux';
 const Example = () => {
   return (
     <div>
-      This is Example.jsx
+      <h3>Example Component</h3>
     </div>
   )
 }
 
-const mapStateToProps = ({}) => {
-  return {
-
-  }
-}
-
-export default connect()(Example);
+export default Example;
