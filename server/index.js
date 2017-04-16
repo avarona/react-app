@@ -1,9 +1,13 @@
 'use strict';
 
 const express = require('express');
-const router = express.Router();
-const models = require('../db')
+const router = new express.Router();
 
 // routes
+router.use('/ex', require('./routes/examples'));
+
+router.use(function (req, res) {
+  res.status(404).end();
+});
 
 module.exports = router;

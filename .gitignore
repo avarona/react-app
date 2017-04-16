@@ -17,4 +17,4 @@ public/bundle.js.map
 npm-debug.log
 
 # API keys
-keys.js
+keys.js  # TODO: CREATE keys.js file to store api keys

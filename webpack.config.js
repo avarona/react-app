@@ -1,7 +1,5 @@
 'use strict';
 
-const webpack = require('webpack');
-
 // process.traceDeprecation = true
 
 module.exports = {
@@ -18,10 +16,17 @@ module.exports = {
         test: /jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        query: {
+        options: {
           presets: ['react', 'es2015']
         }
+      }, {
+        test: /\.scss$/,
+        use: [
+          'style-loader', // creates style nodes from JS strings
+          'css-loader', // translates CSS into CommonJS
+          'sass-loader', // compiles Sass to CSS
+        ]
       }
-    ]
+    ],
   }
 };

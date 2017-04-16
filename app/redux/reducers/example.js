@@ -1,26 +1,5 @@
-// import {  } from '../action-creators';
-//
-// /* -----------------    ACTIONS     ------------------ */
-//
-// const UPDATE = 'UPDATE'
-//
-// /* -------------       REDUCER     ------------------- */
-//
-// const reducer = (state = '', action) => {
-//   switch (action.type){
-//     case UPDATE:
-//         return 'Updated state'
-//     default:
-//         return state;
-//     }
-// };
-//
-// export default reducer;
-
-
 /* -----------------    ACTIONS     ------------------ */
 const UPDATE = 'UPDATE';
-const CLEAR = 'CLEAR';
 
 /* ------------   ACTION CREATORS     ----------------- */
 

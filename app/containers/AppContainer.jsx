@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// import Footer from '../components/Footer.jsx';
 import Example from '../components/Example.jsx';
+import { exampleUpdate } from '../redux/reducers/example';
 
 class AppContainer extends Component {
 	constructor(props){
@@ -13,6 +15,7 @@ class AppContainer extends Component {
 			<div>
 				<h1>App Container</h1>
         <Example />
+				{/* <Footer /> */}
       </div>
     )
   }
