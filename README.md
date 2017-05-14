@@ -43,5 +43,5 @@ If using an API, create 'keys.js' in home directory and export API keys
 ## What's to come...
 - Navbar & Footer components
 - Styling libraries (bootstrap, material ui)
-- OAuth
+- OAuth (sequelize sessions)
 - Heroku deployment

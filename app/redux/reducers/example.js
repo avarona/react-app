@@ -9,7 +9,7 @@ export const exampleUpdate = () => ({
 
 /* -------------       REDUCER     ------------------- */
 
-const reducer = (state = '', action) => {
+const auth = (state = '', action) => {
   switch (action.type){
     case UPDATE:
       return 'Updated state';
@@ -18,4 +18,4 @@ const reducer = (state = '', action) => {
     }
 };
 
-export default reducer;
+export default auth;

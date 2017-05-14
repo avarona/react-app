@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 
 /* Import reducers and combine them below */
+import auth from './reducers/auth';
 import example from './reducers/example';
 
-export default combineReducers({
+const store = combineReducers({
+  auth,
   example
 });
+
+export default store;

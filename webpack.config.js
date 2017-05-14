@@ -1,19 +1,20 @@
 'use strict';
 
+const path = require('path');
 // process.traceDeprecation = true
 
 module.exports = {
   entry: './app/origin.jsx',
   output: {
-    path: __dirname,
-    filename: './public/bundle.js'
+    path: path.join(__dirname, 'public/dist'),
+    filename: 'bundle.js'
   },
   context: __dirname,
   devtool: 'source-map',
   module: {
     loaders: [
       {
-        test: /jsx?$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         options: {
@@ -26,7 +27,10 @@ module.exports = {
           'css-loader', // translates CSS into CommonJS
           'sass-loader', // compiles Sass to CSS
         ]
+      }, {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
       }
-    ],
+    ]
   }
 };

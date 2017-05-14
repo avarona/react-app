@@ -1,6 +1,6 @@
 const db = require('./_db');
 
-const Example = require('./models/example.js');
+const User = require('./models/user.js');
 
 // associations here
 

@@ -2,14 +2,36 @@
 
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
 const { resolve } = require('path');
 const db = require('./db');
 const server = require('./server');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const chalk = require('chalk');
+const session = require('express-session');
+const passport = require('passport');
 
 // logging middleware
 app.use(morgan('dev'));
+
+// authentication middleware
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'secret here',
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(function (req, res, next) {
+  console.log('session', req.session);
+  next();
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// bodyParser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // prepend '/api' to URIs
 app.use('/api', server);

@@ -10,11 +10,10 @@ node_modules
 yarn.lock
 
 # Compiled JS
-public/bundle.js
-public/bundle.js.map
+public/dist
 
 # NPM errors
 npm-debug.log
 
 # API keys
-keys.js  # TODO: CREATE keys.js file to store api keys
+keys.js

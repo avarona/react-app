@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const Example = require('../../db/models/example');
+const User = require('../../db/models/user');
 
 router.get('/', function(req, res, next) {
-  console.log('hello')
-  Example.findAll()
+  User.findAll()
   .then(all => {
     console.log(all)
     res.send(all);

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import Footer from '../components/Footer.jsx';
+import Navbar from './Navbar.jsx';
+import Footer from '../components/Footer.jsx';
 import Example from '../components/Example.jsx';
 import { exampleUpdate } from '../redux/reducers/example';
 
@@ -13,9 +14,10 @@ class AppContainer extends Component {
 	render() {
 		return (
 			<div>
+				<Navbar />
 				<h1>App Container</h1>
         <Example />
-				{/* <Footer /> */}
+				<Footer />
       </div>
     )
   }
@@ -23,10 +25,10 @@ class AppContainer extends Component {
 
 /* REDUX CONTAINER */
 
-const mapStateToProps = ({ example }) => ({ example })
+const mapStateToProps = ({ example }) => ({ example });
 
 const mapDispatchToProps = dispatch => ({
   update: () => dispatch(exampleUpdate())
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
