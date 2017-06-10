@@ -1,8 +1,8 @@
 {
-  "name": "create-app",
+  "name": "react-app",
   "version": "1.0.0",
   "description": "A react-redux fullstack generator running on Node.js with express and postgres",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "webpack -w & nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
