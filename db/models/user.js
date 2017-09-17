@@ -44,35 +44,36 @@ const User = db.define('users', {
       return first + ' ' + last;
     }
   },
-  instanceMethods: {
-    sanitize: function () {
-      return _.omit(this.toJSON(), ['password', 'salt']);
-    },
-    correctPassword: function (candidatePassword) {
-      return this.Model.encryptPassword(candidatePassword, this.salt) === this.password;
-    }
-  },
-  classMethods: {
-    generateSalt: function () {
-      return crypto.randomBytes(16).toString('base64');
-    },
-    encryptPassword: function (plainText, salt) {
-      const hash = crypto.createHash('sha1');
-      hash.update(plainText);
-      hash.update(salt);
-      return hash.digest('hex');
-    }
-  },
   hooks: {
     beforeCreate: setSaltAndPassword,
     beforeUpdate: setSaltAndPassword
   }
 });
 
+// Methods Sequelize v4
+User.prototype.generateSalt = function () {
+  return crypto.randomBytes(16).toString('base64');
+}
+
+User.prototype.encryptPassword = function (plainText, salt) {
+  const hash = crypto.createHash('sha1');
+  hash.update(plainText);
+  hash.update(salt);
+  return hash.digest('hex');
+}
+
+User.prototype.santize = function () {
+  return _.omit(this.toJSON(), ['password', 'salt']);
+}
+
+User.prototype.correctPassword = function (candidatePassword) {
+  return this.encryptPassword(candidatePassword, this.salt) === this.password;
+}
+
 function setSaltAndPassword (user) {
   if (user.changed('password')) {
-    user.salt = user.Model.generateSalt();
-    user.password = user.Model.encryptPassword(user.password, user.salt);
+    user.salt = user.generateSalt();
+    user.password = user.encryptPassword(user.password, user.salt);
   }
 }
 

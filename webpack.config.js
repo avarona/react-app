@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-// process.traceDeprecation = true
+process.traceDeprecation = true;
 
 module.exports = {
   entry: './app/origin.jsx',
@@ -18,7 +18,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         options: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'env']
         }
       }, {
         test: /\.scss$/,
